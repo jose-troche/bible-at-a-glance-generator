@@ -16,12 +16,17 @@ Edit the text, rerun the script — no need to touch any layout code.
 Requires Python 3.8+.
 
 ```bash
-pip install matplotlib pyyaml
+python3 -m venv venv
+source venv/bin/activate      # on Windows: venv\Scripts\activate
+pip install -r requirements.txt
 ```
 
 ## Generate the PDF
 
+Activate the virtual environment first if it isn't already active:
+
 ```bash
+source venv/bin/activate      # on Windows: venv\Scripts\activate
 python generate_chart.py
 ```
 
