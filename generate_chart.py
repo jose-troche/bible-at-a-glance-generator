@@ -115,14 +115,93 @@ def main():
             lines.append(cur)
         return lines
 
-    # -------------------------------------------------- title + subtitle
+    # -------------------------------------------------- title
     ax.text(50, 95.9, data["title"], ha="center", va="center",
             fontsize=18, fontweight="bold", family="serif", color="#7c2d12")
-    ax.text(50, 93.9, data.get("subtitle", ""), ha="center", va="center",
-            fontsize=7.5, color="#6b6355")
+
+    # -------------------------------------------------- testament sections (measured first)
+    # Cards are sized to the minimum height their content needs at TARGET_CARD_FS
+    # (falling back to a smaller size only if that would blow the page budget).
+    # Whatever height this saves versus the old fixed-band layout is handed to
+    # the summary box above, so its font can grow to fill the space.
+    SEC_HDR_H = 2.2
+    GAP_X = 0.30
+    GAP_Y = 0.34
+    TEST_GAP = 1.1
+    BOTTOM_ANCHOR = 2.6  # y-coordinate the last testament band's bottom edge sits on
+    TL_H = 3.9
+    TL_GAP_ABOVE = 1.0   # gap between top of testament grids and the timeline
+    SM_TL_GAP = 0.6      # gap between summary box and timeline
+    SM_TOP = 93.6         # top of summary box, just under the title
+    MIN_SUMMARY_H = 4.0
+
+    def flatten(sections):
+        out = []
+        for sec in sections:
+            for book in sec["books"]:
+                out.append((sec["name"], sec["color"], book["name"], book["summary"]))
+        return out
+
+    STRIP_H = 0.18
+    STRIP_TOP_GAP = 0.08
+    NAME_TOP_GAP = 0.14
+    NAME_SUM_GAP = 0.10
+    BOTTOM_PAD = 0.12
+    CARD_PAD = 0.32
+
+    def layout_section(sections, rows, target_sfs):
+        items = flatten(sections)
+        ncols = max(1, math.ceil(len(items) / rows))
+        nrows = math.ceil(len(items) / ncols)
+        cell_w = (100 - 2 * M - (ncols - 1) * GAP_X) / ncols
+        inner_w = cell_w - 2 * CARD_PAD
+
+        nfs = 7.2 if ncols >= 9 else 8.6
+        while nfs > 5.0:
+            if all(len(wrap_to_width(b, nfs, inner_w, "bold")) <= 2 for _, _, b, _ in items):
+                break
+            nfs -= 0.2
+        _, name_lh = measure("Ag", nfs, "bold")
+
+        def name_lines_for(book):
+            return wrap_to_width(book, nfs, inner_w, "bold")
+
+        _, sum_lh = measure("Ag", target_sfs)
+        cell_h = 0.0
+        for _, _, book, summ in items:
+            nlines = len(name_lines_for(book))
+            name_block_h = nlines * name_lh * 1.08
+            fixed_h = STRIP_TOP_GAP + STRIP_H + NAME_TOP_GAP + name_block_h + NAME_SUM_GAP + BOTTOM_PAD
+            lines_ = wrap_to_width(summ, target_sfs, inner_w)
+            cell_h = max(cell_h, fixed_h + len(lines_) * sum_lh * 1.24)
+
+        band_h = cell_h * nrows + (nrows - 1) * GAP_Y + SEC_HDR_H + 0.5
+        return {
+            "items": items, "ncols": ncols, "nrows": nrows, "cell_w": cell_w, "cell_h": cell_h,
+            "inner_w": inner_w, "nfs": nfs, "name_lh": name_lh, "sfs": target_sfs, "band_h": band_h,
+            "name_lines_for": name_lines_for,
+        }
+
+    testament_keys = list(data["testaments"].keys())
+    n_test = len(testament_keys)
+
+    # Fixed at 5.5pt per design; auto-shrinks only if that would leave the
+    # summary box smaller than MIN_SUMMARY_H (safety net for future edits).
+    target_sfs = 5.5
+    while True:
+        layouts = {key: layout_section(data["testaments"][key]["sections"],
+                                        data["testaments"][key].get("rows", 3), target_sfs)
+                   for key in testament_keys}
+        total_bands = sum(l["band_h"] for l in layouts.values()) + TEST_GAP * (n_test - 1)
+        top_of_sections = BOTTOM_ANCHOR + total_bands
+        tl_top = top_of_sections + TL_H + TL_GAP_ABOVE
+        sm_bot = tl_top + SM_TL_GAP
+        if SM_TOP - sm_bot >= MIN_SUMMARY_H or target_sfs <= 3.6:
+            break
+        target_sfs -= 0.1
 
     # -------------------------------------------------- summary band
-    sm_top, sm_bot = 92.4, 85.8
+    sm_top = SM_TOP
     ax.add_patch(FancyBboxPatch((M, sm_bot), 100 - 2 * M, sm_top - sm_bot,
                                  boxstyle="round,pad=0,rounding_size=0.6", facecolor="#FFFFFF",
                                  edgecolor="#d8cdb5", linewidth=1.2, zorder=1))
@@ -131,7 +210,7 @@ def main():
     avail_h = (sm_top - sm_bot) - 2 * pad_y
     LS = 1.38
     summary_text = " ".join(data["summary"].split())  # normalize whitespace/newlines
-    fs = 9.0
+    fs = 16.0
     while fs > 4.0:
         lines = wrap_to_width(summary_text, fs, avail_w)
         _, lh = measure("Ag", fs)
@@ -145,8 +224,7 @@ def main():
     TL_C = "#8a7a5f"
     TL_DATE = "#a08e6d"
     era_colors = {key: t["bar_color"] for key, t in data["testaments"].items()}
-    tl_top = sm_bot - 0.6
-    tl_h = 3.9
+    tl_h = TL_H
     tl_mid = tl_top - tl_h / 2
     tl_x0, tl_x1 = M + 4.0, 100 - M - 4.0
 
@@ -165,6 +243,10 @@ def main():
                 solid_capstyle="round", zorder=1)
         arrow_tip = tl_x1 + 3.2
         ax.add_patch(FancyArrowPatch((tl_x1, tl_mid), (arrow_tip, tl_mid),
+                                      arrowstyle="-|>", mutation_scale=6.5, linewidth=0.9,
+                                      color=TL_C, zorder=1))
+        arrow_tip_left = tl_x0 - 3.2
+        ax.add_patch(FancyArrowPatch((tl_x0, tl_mid), (arrow_tip_left, tl_mid),
                                       arrowstyle="-|>", mutation_scale=6.5, linewidth=0.9,
                                       color=TL_C, zorder=1))
         for bi in break_idxs:
@@ -199,20 +281,13 @@ def main():
                     ha="right", va="top", fontsize=3.7, style="italic",
                     color=TL_DATE, linespacing=1.25, zorder=2)
 
-    # -------------------------------------------------- testament sections
-    SEC_HDR_H = 2.2
-    GAP_X = 0.30
-    GAP_Y = 0.34
-    top_of_sections = tl_top - tl_h - 1.0
+    # -------------------------------------------------- testament sections (render)
+    def render_section(title, bar_color, sections, y_top, layout):
+        ncols, nrows = layout["ncols"], layout["nrows"]
+        cell_w, cell_h = layout["cell_w"], layout["cell_h"]
+        inner_w, nfs, name_lh, sfs = layout["inner_w"], layout["nfs"], layout["name_lh"], layout["sfs"]
+        name_lines_for = layout["name_lines_for"]
 
-    def flatten(sections):
-        out = []
-        for sec in sections:
-            for book in sec["books"]:
-                out.append((sec["name"], sec["color"], book["name"], book["summary"]))
-        return out
-
-    def draw_section(title, bar_color, sections, rows, y_top, y_bot):
         ax.add_patch(FancyBboxPatch((M, y_top - SEC_HDR_H), 100 - 2 * M, SEC_HDR_H,
                                      boxstyle="round,pad=0,rounding_size=0.5", facecolor=bar_color,
                                      edgecolor="none", zorder=1))
@@ -235,61 +310,10 @@ def main():
             lx -= 1.6
 
         grid_top = y_top - SEC_HDR_H - 0.5
-        grid_bot = y_bot
-        items = flatten(sections)
-        ncols = max(1, math.ceil(len(items) / rows))
-        nrows = math.ceil(len(items) / ncols)
-        cell_w = (100 - 2 * M - (ncols - 1) * GAP_X) / ncols
-        cell_h = (grid_top - grid_bot - (nrows - 1) * GAP_Y) / nrows
-        pad = 0.32
-        inner_w = cell_w - 2 * pad
-
-        STRIP_H = 0.18
-        STRIP_TOP_GAP = 0.10
-        NAME_TOP_GAP = 0.20
-        NAME_SUM_GAP = 0.13
-        BOTTOM_PAD = 0.18
-
-        # name font: modest starting size (keeps most names on one line);
-        # shrink only if some name still needs more than 2 lines to fit.
-        nfs = 7.2 if ncols >= 12 else 8.6
-        while nfs > 5.0:
-            if all(len(wrap_to_width(b, nfs, inner_w, "bold")) <= 2 for _, _, b, _ in items):
-                break
-            nfs -= 0.2
-        _, name_lh = measure("Ag", nfs, "bold")
-
-        def name_lines_for(book):
-            return wrap_to_width(book, nfs, inner_w, "bold")
-
-        def summary_fits(sfs):
-            _, lh = measure("Ag", sfs)
-            for _, _, book, summ in items:
-                nlines = len(name_lines_for(book))
-                name_block_h = nlines * name_lh * 1.08
-                fixed_h = STRIP_TOP_GAP + STRIP_H + NAME_TOP_GAP + name_block_h + NAME_SUM_GAP + BOTTOM_PAD
-                avail_h = cell_h - fixed_h
-                lines_ = wrap_to_width(summ, sfs, inner_w)
-                if len(lines_) * lh * 1.24 > avail_h:
-                    return False
-            return True
-
-        sfs = 9.0
-        while sfs > 3.6 and not summary_fits(sfs):
-            sfs -= 0.1
 
         overflow = []
         _, sum_lh = measure("Ag", sfs)
-        for _, _, book, summ in items:
-            nlines = len(name_lines_for(book))
-            name_block_h = nlines * name_lh * 1.08
-            fixed_h = STRIP_TOP_GAP + STRIP_H + NAME_TOP_GAP + name_block_h + NAME_SUM_GAP + BOTTOM_PAD
-            avail_h = cell_h - fixed_h
-            lines_ = wrap_to_width(summ, sfs, inner_w)
-            if len(lines_) * sum_lh * 1.24 > avail_h:
-                overflow.append(book)
-
-        for i, (gname, color, book, summ) in enumerate(items):
+        for i, (gname, color, book, summ) in enumerate(layout["items"]):
             r, c = divmod(i, ncols)
             x = M + c * (cell_w + GAP_X)
             y = grid_top - r * (cell_h + GAP_Y)
@@ -303,42 +327,29 @@ def main():
             name_y = strip_y - STRIP_H - NAME_TOP_GAP
             name_lines = name_lines_for(book)
             name_block_h = len(name_lines) * name_lh * 1.08
-            ax.text(x + pad, name_y, "\n".join(name_lines), ha="left", va="top",
+            ax.text(x + CARD_PAD, name_y, "\n".join(name_lines), ha="left", va="top",
                     fontsize=nfs, fontweight="bold", color=shade(color, 0.25),
                     linespacing=1.08, zorder=3)
             slines = wrap_to_width(summ, sfs, inner_w)
-            ax.text(x + pad, name_y - name_block_h - NAME_SUM_GAP, "\n".join(slines),
+            ax.text(x + CARD_PAD, name_y - name_block_h - NAME_SUM_GAP, "\n".join(slines),
                     ha="left", va="top", fontsize=sfs, color=INK, linespacing=1.24, zorder=3)
+            fixed_h = STRIP_TOP_GAP + STRIP_H + NAME_TOP_GAP + name_block_h + NAME_SUM_GAP + BOTTOM_PAD
+            if len(slines) * sum_lh * 1.24 > cell_h - fixed_h:
+                overflow.append(book)
 
         status = "OK" if not overflow else f"OVERFLOW in: {overflow}"
-        print(f"[{title}] {len(items)} books, {ncols}x{nrows} grid, "
+        print(f"[{title}] {len(layout['items'])} books, {ncols}x{nrows} grid, "
               f"name_fs={nfs:.2f}, summary_fs={sfs:.2f}  -> {status}", file=sys.stderr)
         if overflow:
             print(f"  Tip: shorten the summary text for the book(s) above, or reduce the "
                   f"number of books/rows for this testament.", file=sys.stderr)
-        return sfs
-
-    testament_keys = list(data["testaments"].keys())
-    n_test = len(testament_keys)
-    space = top_of_sections - 2.6
-    sec_gap = 1.1 * (n_test - 1) if n_test > 1 else 0
-    usable = space - sec_gap
-    band_h = usable / n_test
 
     y_top = top_of_sections
-    min_sfs = 99
     for key in testament_keys:
         t = data["testaments"][key]
-        y_bot = y_top - band_h
-        sfs = draw_section(t["title"], t["bar_color"], t["sections"], t.get("rows", 3), y_top, y_bot)
-        min_sfs = min(min_sfs, sfs)
-        y_top = y_bot - 1.1
-
-    if min_sfs <= 4.2:
-        print(f"\nNote: smallest summary font landed at {min_sfs:.1f}pt to fit everything on one "
-              f"page. If that's too small once printed, either trim some summaries, or split into "
-              f"one PDF per testament (run this script twice with a filtered copy of the YAML).",
-              file=sys.stderr)
+        layout = layouts[key]
+        render_section(t["title"], t["bar_color"], t["sections"], y_top, layout)
+        y_top = (y_top - layout["band_h"]) - TEST_GAP
 
     fig.savefig(args.output, facecolor=BG)
     print(f"\nSaved: {args.output}  ({fig_w}x{fig_h} in)", file=sys.stderr)
