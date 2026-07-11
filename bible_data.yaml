@@ -1,0 +1,240 @@
+# ============================================================================
+# Bible Chart — source content
+# ----------------------------------------------------------------------------
+# Edit any text below, then run:
+#     python generate_chart.py
+# to regenerate the PDF. You do not need to touch generate_chart.py at all —
+# it automatically re-fits fonts, wraps text, and resizes cards to whatever
+# you put here.
+#
+# YAML tips:
+#   - Plain text usually doesn't need quotes.
+#   - If a line contains a colon ":" followed by a space, wrap it in quotes,
+#     e.g. "Judgment: the Day of the LORD arrives"
+#   - An em dash is  \u2014  (or just paste the "—" character directly, both work)
+# ============================================================================
+
+title: "The Bible at a Glance — Every Book Summarized"
+subtitle: "All 66 books with one-line summaries, grouped and color-coded by division  ·  English Standard Version (ESV)"
+
+# One paragraph shown in the box at the top of the page.
+summary: >
+  The Bible tells one unified story: God's creation, humanity's rebellion, and
+  God's relentless plan to redeem and dwell with his people. God creates a
+  good world, but humans rebel, bringing sin and death. He chooses Abraham's
+  family — Israel — rescuing them from slavery, giving his law, and planting
+  them in a promised land. Yet Israel breaks covenant and falls into exile,
+  while the prophets promise a new covenant and a coming King. The New
+  Testament announces that this promised one has come: Jesus, God in the
+  flesh, who lives the faithful life humanity never lived, dies bearing the
+  penalty for sin, and rises, defeating death. His Spirit empowers the church
+  to carry this good news to all nations. The story ends where it began, but
+  better: a new heaven and new earth where God dwells with his redeemed
+  people forever. Creation, fall, redemption, restoration — all centered on
+  Jesus Christ.
+
+# Chronological strip drawn between the summary box and the Old Testament
+# grid. "era" must match one of the testament keys below (used for dot
+# color); a single entry with "break: <label>" draws the "silent years" gap
+# instead of a dated event.
+timeline:
+  - {name: "Abraham",                    date: "c. 2000 BC",       era: old}
+  - {name: "Exodus (Moses)",             date: "c. 1446 BC",       era: old}
+  - {name: "David",                      date: "c. 1000 BC",       era: old}
+  - {name: "Kingdom divides",            date: "930 BC",           era: old}
+  - {name: "Israel exiled (Assyria)",    date: "722 BC",           era: old}
+  - {name: "Judah exiled (Babylon)",     date: "586 BC",           era: old}
+  - {name: "Return from exile",          date: "538 BC",           era: old}
+  - {break: "c. 400 yrs"}
+  - {name: "Jesus' birth",               date: "c. 4 BC",          era: new}
+  - {name: "Crucifixion & resurrection", date: "c. AD 30–33",      era: new}
+  - {name: "Epistles written",           date: "c. AD 48–95",      era: new}
+  - {name: "Revelation written",         date: "c. AD 95",         era: new}
+note: "traditional dating · not to scale"
+
+# Each testament becomes one horizontal band on the page, split into
+# color-coded sections, each with its own list of books. "rows" controls how
+# many rows of cards that band uses (columns are computed automatically from
+# the book count, so you can freely add/remove/reorder books or sections).
+testaments:
+  old:
+    title: "OLD TESTAMENT"
+    bar_color: "#7a4f22"
+    rows: 3
+    sections:
+      - name: "PENTATEUCH"
+        color: "#A0342B"
+        books:
+          - name: Genesis
+            summary: God creates the world, humanity falls into sin, and God begins his redemptive plan through Abraham, Isaac, Jacob, and Joseph.
+          - name: Exodus
+            summary: God rescues Israel from Egyptian slavery through Moses, gives the Law at Sinai, and establishes the tabernacle.
+          - name: Leviticus
+            summary: Laws for worship, sacrifice, and holiness, showing how a sinful people can live with a holy God.
+          - name: Numbers
+            summary: Israel wanders 40 years in the wilderness due to unbelief, as God preserves them despite rebellion.
+          - name: Deuteronomy
+            summary: "Moses' farewell sermons restating the Law and calling Israel to covenant faithfulness before entering Canaan."
+
+      - name: "HISTORICAL"
+        color: "#B07818"
+        books:
+          - name: Joshua
+            summary: "Israel conquers and settles the Promised Land under Joshua's leadership."
+          - name: Judges
+            summary: A cycle of sin, oppression, and deliverance as Israel repeatedly abandons God, who raises up judges to rescue them.
+          - name: Ruth
+            summary: "A Moabite widow's loyalty leads to redemption through Boaz, placing her in the lineage of David and Christ."
+          - name: 1 Samuel
+            summary: "Israel transitions from judges to monarchy: Samuel anoints Saul, who fails, and then David."
+          - name: 2 Samuel
+            summary: "David's reign — his triumphs, God's covenant promising an eternal throne, and his fall with Bathsheba."
+          - name: 1 Kings
+            summary: "Solomon's glory and temple, then the kingdom splits into Israel and Judah amid growing idolatry; Elijah confronts Ahab."
+          - name: 2 Kings
+            summary: Both kingdoms decline into idolatry; Israel falls to Assyria and Judah to Babylon.
+          - name: 1 Chronicles
+            summary: "A retelling of David's reign emphasizing temple worship and God's covenant faithfulness."
+          - name: 2 Chronicles
+            summary: "Solomon through Judah's exile, focusing on the temple and the kings who sought (or abandoned) God."
+          - name: Ezra
+            summary: Exiles return to rebuild the temple, and Ezra leads spiritual reform.
+          - name: Nehemiah
+            summary: "Nehemiah rebuilds Jerusalem's walls and leads covenant renewal."
+          - name: Esther
+            summary: A Jewish queen in Persia courageously saves her people from genocide; God works providentially though unnamed.
+
+      - name: "WISDOM & POETRY"
+        color: "#4E7C3A"
+        books:
+          - name: Job
+            summary: "A righteous sufferer wrestles with why the innocent suffer; God answers with his sovereignty and wisdom."
+          - name: Psalms
+            summary: 150 songs and prayers of praise, lament, thanksgiving, and trust in God.
+          - name: Proverbs
+            summary: Practical wisdom for godly living, rooted in the fear of the LORD.
+          - name: Ecclesiastes
+            summary: "Life \u201Cunder the sun\u201D is fleeting vapor; meaning is found in fearing God and keeping his commandments."
+          - name: Song of Solomon
+            summary: A poetic celebration of love between a bride and bridegroom.
+
+      - name: "MAJOR PROPHETS"
+        color: "#1F6E7E"
+        books:
+          - name: Isaiah
+            summary: Judgment on sin and glorious promises of the coming Messiah, the suffering servant, and a new creation.
+          - name: Jeremiah
+            summary: The weeping prophet warns Judah of Babylonian judgment and promises a new covenant.
+          - name: Lamentations
+            summary: "Poems mourning Jerusalem's destruction, yet clinging to God's steadfast love."
+          - name: Ezekiel
+            summary: "God's glory departing and returning; judgment on Judah, then hope of restoration and new hearts."
+          - name: Daniel
+            summary: "Faithfulness in Babylonian exile and apocalyptic visions of God's kingdom triumphing over earthly empires."
+
+      - name: "MINOR PROPHETS"
+        color: "#46639C"
+        books:
+          - name: Hosea
+            summary: "Hosea's marriage to unfaithful Gomer pictures God's persistent love for adulterous Israel."
+          - name: Joel
+            summary: "A locust plague foreshadows the Day of the LORD; God promises to pour out his Spirit."
+          - name: Amos
+            summary: "Judgment on Israel's injustice and empty religion; a call to let justice roll down."
+          - name: Obadiah
+            summary: "Judgment pronounced on Edom for gloating over Judah's fall."
+          - name: Jonah
+            summary: A reluctant prophet learns God's compassion extends even to enemy Nineveh.
+          - name: Micah
+            summary: "Judgment for injustice, hope in a ruler from Bethlehem, and the call to do justice, love kindness, walk humbly."
+          - name: Nahum
+            summary: "Nineveh's coming destruction; God avenges evil."
+          - name: Habakkuk
+            summary: "A prophet questions God's justice and learns the righteous shall live by faith."
+          - name: Zephaniah
+            summary: "The Day of the LORD brings sweeping judgment, but a humble remnant will rejoice."
+          - name: Haggai
+            summary: The returned exiles are urged to prioritize rebuilding the temple.
+          - name: Zechariah
+            summary: Visions encouraging temple rebuilding and prophecies of the coming humble King.
+          - name: Malachi
+            summary: "God rebukes Israel's halfhearted worship and promises a messenger preparing the LORD's way."
+
+  new:
+    title: "NEW TESTAMENT"
+    bar_color: "#31586f"
+    rows: 3
+    sections:
+      - name: "GOSPELS"
+        color: "#5E4390"
+        books:
+          - name: Matthew
+            summary: "Jesus as the promised Messiah and King, fulfilling Old Testament prophecy; includes the Sermon on the Mount."
+          - name: Mark
+            summary: A fast-paced account of Jesus as the suffering Servant who came to give his life as a ransom for many.
+          - name: Luke
+            summary: A careful, orderly account emphasizing Jesus as Savior of all people, especially the poor and outcast.
+          - name: John
+            summary: Jesus as the eternal Word made flesh; believing in him brings eternal life.
+
+      - name: "HISTORY"
+        color: "#963F8F"
+        books:
+          - name: Acts
+            summary: The Spirit empowers the church to spread the gospel from Jerusalem to Rome, through Peter and Paul.
+
+      - name: "PAULINE EPISTLES"
+        color: "#B03A2E"
+        books:
+          - name: Romans
+            summary: "Paul's fullest explanation of the gospel: all have sinned, justification is by faith, and nothing separates us from God's love."
+          - name: 1 Corinthians
+            summary: Paul corrects a divided church on unity, immorality, worship, spiritual gifts, love, and resurrection.
+          - name: 2 Corinthians
+            summary: "Paul defends his apostleship and shows God's power perfected in weakness."
+          - name: Galatians
+            summary: Salvation is by faith in Christ alone, not works of the law; live by the Spirit in freedom.
+          - name: Ephesians
+            summary: "Believers' riches in Christ and the church's unity; walk worthy of your calling."
+          - name: Philippians
+            summary: A joyful letter from prison; rejoice in Christ, imitate his humility, press on toward the goal.
+          - name: Colossians
+            summary: Christ is supreme over all creation and fully sufficient — no additions needed.
+          - name: 1 Thessalonians
+            summary: Encouragement to a young church to live holy lives while awaiting Christ's return.
+          - name: 2 Thessalonians
+            summary: Clarification about the Day of the Lord and a call to steadfast, diligent living.
+          - name: 1 Timothy
+            summary: Instructions to a young pastor on sound doctrine, church leadership, and godliness.
+          - name: 2 Timothy
+            summary: "Paul's final letter: guard the gospel, endure suffering, preach the word."
+          - name: Titus
+            summary: Establish godly leaders and teach how the gospel produces good works.
+          - name: Philemon
+            summary: "Paul appeals for a runaway slave, Onesimus, to be welcomed back as a brother in Christ."
+
+      - name: "GENERAL EPISTLES"
+        color: "#BE5F13"
+        books:
+          - name: Hebrews
+            summary: Jesus is superior to angels, Moses, and the old sacrifices — the perfect high priest of a better covenant.
+          - name: James
+            summary: "Genuine faith produces works: control the tongue, care for the needy, resist worldliness."
+          - name: 1 Peter
+            summary: Hope and holiness for suffering believers, who are exiles awaiting an imperishable inheritance.
+          - name: 2 Peter
+            summary: "Grow in grace, beware false teachers, and remember the Lord's promised return."
+          - name: 1 John
+            summary: Assurance of salvation through walking in light, love, and truth; God is love.
+          - name: 2 John
+            summary: "Walk in truth and love; don't welcome false teachers."
+          - name: 3 John
+            summary: Commendation of hospitality toward faithful gospel workers.
+          - name: Jude
+            summary: Contend for the faith against false teachers who pervert grace.
+
+      - name: "APOCALYPTIC"
+        color: "#33308A"
+        books:
+          - name: Revelation
+            summary: "Apocalyptic visions of Christ's ultimate victory, final judgment, and the new heaven and new earth where God dwells with his people."
