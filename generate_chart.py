@@ -126,7 +126,7 @@ def main():
     ax.add_patch(FancyBboxPatch((M, sm_bot), 100 - 2 * M, sm_top - sm_bot,
                                  boxstyle="round,pad=0,rounding_size=0.6", facecolor="#FFFFFF",
                                  edgecolor="#d8cdb5", linewidth=1.2, zorder=1))
-    pad_x, pad_y = 1.2, 0.55
+    pad_x, pad_y = 0.7, 0.3
     avail_w = (100 - 2 * M) - 2 * pad_x
     avail_h = (sm_top - sm_bot) - 2 * pad_y
     LS = 1.38
@@ -195,8 +195,8 @@ def main():
                         fontsize=4.6, color=TL_DATE, zorder=2)
             side *= -1
         if data.get("note"):
-            ax.text(arrow_tip - 0.3, tl_mid + 1.15, data["note"].replace(" · ", "\n"),
-                    ha="right", va="bottom", fontsize=3.7, style="italic",
+            ax.text(arrow_tip - 0.3, tl_mid - 1.15, data["note"].replace(" · ", "\n"),
+                    ha="right", va="top", fontsize=3.7, style="italic",
                     color=TL_DATE, linespacing=1.25, zorder=2)
 
     # -------------------------------------------------- testament sections

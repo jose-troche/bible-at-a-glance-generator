@@ -14,24 +14,30 @@
 #   - An em dash is  \u2014  (or just paste the "—" character directly, both work)
 # ============================================================================
 
-title: "The Bible at a Glance — Every Book Summarized"
-subtitle: "All 66 books with one-line summaries, grouped and color-coded by division  ·  English Standard Version (ESV)"
+title: "The Bible at a Glance"
+subtitle: "All 66 books summarized  ·  English Standard Version (ESV)"
 
 # One paragraph shown in the box at the top of the page.
 summary: >
   The Bible tells one unified story: God's creation, humanity's rebellion, and
-  God's relentless plan to redeem and dwell with his people. God creates a
-  good world, but humans rebel, bringing sin and death. He chooses Abraham's
-  family — Israel — rescuing them from slavery, giving his law, and planting
-  them in a promised land. Yet Israel breaks covenant and falls into exile,
-  while the prophets promise a new covenant and a coming King. The New
-  Testament announces that this promised one has come: Jesus, God in the
-  flesh, who lives the faithful life humanity never lived, dies bearing the
-  penalty for sin, and rises, defeating death. His Spirit empowers the church
-  to carry this good news to all nations. The story ends where it began, but
-  better: a new heaven and new earth where God dwells with his redeemed
-  people forever. Creation, fall, redemption, restoration — all centered on
-  Jesus Christ.
+  God's relentless plan to redeem and dwell with his people. In the beginning,
+  God creates a good world, but enticed by Satan, humans rebel, bringing sin
+  and death. Even at this low moment, God proclaims that the offspring of the
+  woman will crush Satan. God chooses Abraham so that through his offspring all
+  nations will be blessed, then redeems his children, Israel, from slavery
+  through Moses, the mediator, giving his law and planting them in the promised
+  land, where they enjoy a golden age under king David. Yet Israel breaks the
+  covenant and falls into exile, while the prophets foretell a new covenant
+  and a coming king. The offspring, the mediator, and the king all point
+  forward to Jesus. The New Testament heralds that this promised one has
+  come: Jesus, God in the flesh, who lives the righteous life humanity never
+  lived, dies bearing sin's penalty, and rises, defeating death and Satan and
+  fulfilling God's promises, so that whoever believes in him will not perish
+  but have eternal life. His Spirit empowers the church to bring this
+  good news to all nations and live for God's glory. The story ends with a
+  new heaven and new earth where God dwells with his redeemed people
+  forever. Creation, fall, redemption, restoration — all centered on Jesus
+  Christ.
 
 # Chronological strip drawn between the summary box and the Old Testament
 # grid. "era" must match one of the testament keys below (used for dot
@@ -50,7 +56,7 @@ timeline:
   - {name: "Crucifixion & resurrection", date: "c. AD 30–33",      era: new}
   - {name: "Epistles written",           date: "c. AD 48–95",      era: new}
   - {name: "Revelation written",         date: "c. AD 95",         era: new}
-note: "traditional dating · not to scale"
+note: "Traditional dating · not to scale"
 
 # Each testament becomes one horizontal band on the page, split into
 # color-coded sections, each with its own list of books. "rows" controls how
