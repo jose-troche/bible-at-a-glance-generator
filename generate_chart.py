@@ -4,7 +4,7 @@ generate_chart.py — builds the single-page Bible chart PDF from bible_data.yam
 
 Usage:
     python generate_chart.py
-    python generate_chart.py --data bible_data.yaml --output bible_chart.pdf
+    python generate_chart.py --data bible_data.yaml --output bible_at_a_glance.pdf
     python generate_chart.py --page-size a4
     python generate_chart.py --page-size 13x9   (custom, inches, landscape)
 
@@ -63,7 +63,7 @@ def parse_page_size(spec):
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--data", default="bible_data.yaml", help="Path to YAML data file")
-    ap.add_argument("--output", default="bible_chart.pdf", help="Output PDF path")
+    ap.add_argument("--output", default="bible_at_a_glance.pdf", help="Output PDF path")
     ap.add_argument("--page-size", default="letter", help="letter | a4 | tabloid | WxH in inches (e.g. 13x9)")
     ap.add_argument("--portrait", action="store_true", help="Use portrait instead of landscape orientation")
     ap.add_argument("--dpi", type=int, default=190, help="Render DPI (affects on-screen preview quality only; PDF stays vector)")

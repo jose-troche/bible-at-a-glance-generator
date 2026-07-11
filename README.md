@@ -30,7 +30,7 @@ source venv/bin/activate      # on Windows: venv\Scripts\activate
 python generate_chart.py
 ```
 
-This reads `bible_data.yaml` and writes `bible_chart.pdf` in the same
+This reads `bible_data.yaml` and writes `bible_at_a_glance.pdf` in the same
 folder — a single letter-size landscape page, matching the version already
 delivered to you.
 
