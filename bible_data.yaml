@@ -18,25 +18,35 @@ title: "The Bible at a glance · 66 books summarized · ESV"
 
 # One paragraph shown in the box at the top of the page.
 summary: >
-  The Bible tells one unified story: God's creation, humanity's rebellion, and
-  God's relentless plan to redeem and dwell with his people. In the beginning,
-  God creates a good world, but enticed by Satan, humans rebel, bringing sin
-  and death. Even at this low moment, God proclaims that the offspring of the
-  woman will crush Satan. God chooses Abraham so that through his offspring all
-  nations will be blessed, then redeems his children, Israel, from slavery
-  through Moses, the mediator, giving his law and planting them in the promised
-  land, where they enjoy a golden age under king David. Yet Israel breaks the
-  covenant and falls into exile, while the prophets foretell a new covenant
-  and a coming king. The offspring, the mediator, and the king all point
-  forward to Jesus. The New Testament heralds that this promised one has
-  come: Jesus, God in the flesh, who lives the righteous life humanity never
-  lived, dies bearing sin's penalty, and rises, defeating death and Satan and
-  fulfilling God's promises, so that whoever believes in him will not perish
-  but have eternal life. His Spirit empowers the church to bring this
-  good news to all nations and live for God's glory. The story ends with a
-  new heaven and new earth where God dwells with his redeemed people
-  forever. Creation, fall, redemption, restoration — all centered on Jesus
-  Christ ✞.
+  The Bible tells one unified story: God's creation, humanity's rebellion,
+  and God's unwavering plan to redeem a people for himself and dwell with
+  them forever.
+
+  In the beginning, God creates a world that is very good. But deceived by
+  Satan, man rebels, bringing sin and death into creation. Even then, God
+  promises hope: the offspring of the woman will crush Satan.
+
+  God calls Abraham, promising that through his offspring all nations will
+  be blessed. He rescues Abraham's descendants from slavery through Moses,
+  the mediator, gives them his law, and brings them into the promised land.
+  Under David, Israel glimpses God's kingdom, yet breaks the covenant and
+  is sent into exile. God remains faithful, and through the prophets
+  announces a new covenant and a coming king.
+
+  The offspring, the mediator, the king... all point forward to Jesus.
+
+  The New Testament proclaims that he has come. God the Son became man,
+  lived the righteous life we never could, died for sinners, rose
+  victorious over sin, death, and Satan, and fulfilled every promise of
+  God. All who repent and believe in him receive forgiveness and eternal
+  life.
+
+  His Spirit now empowers his church to proclaim this good news until he
+  returns. The story ends with a new heaven and new earth, where God
+  dwells forever with his redeemed people.
+
+  Creation, fall, redemption, restoration — one story of God's grace, every
+  page pointing to Jesus Christ ✞.
 
 # Chronological strip drawn between the summary box and the Old Testament
 # grid. "era" must match one of the testament keys below (used for dot
@@ -71,99 +81,177 @@ testaments:
         color: "#A0342B"
         books:
           - name: Genesis
-            summary: God creates the world, humanity falls into sin, and God begins his redemptive plan through Abraham, Isaac, Jacob, and Joseph.
+            summary: >
+              God creates the world, humanity falls into sin, and God begins his
+              redemptive plan through Abraham, Isaac, Jacob, and Joseph.
           - name: Exodus
-            summary: God rescues Israel from Egyptian slavery through Moses, gives the Law at Sinai, and establishes the tabernacle.
+            summary: >
+              God rescues Israel from Egyptian slavery through Moses, gives the Law at
+              Sinai, and establishes the tabernacle.
           - name: Leviticus
-            summary: "A holy God teaches Israel to live in His presence through sacrifice and purity: \"Be holy, for I am holy.\""
+            summary: >
+              A holy God teaches Israel to live in His presence through sacrifice and
+              purity: "Be holy, for I am holy."
           - name: Numbers
-            summary: "Israel journeys from Sinai toward Canaan but rebels in unbelief; a generation dies in the wilderness before the next enters the land."
+            summary: >
+              Israel journeys from Sinai toward Canaan but rebels in unbelief; a
+              generation dies in the wilderness before the next enters the land.
           - name: Deuteronomy
-            summary: "Moses' farewell sermons restating the Law and calling Israel to covenant faithfulness before entering Canaan."
+            summary: >
+              Moses' farewell sermons restating the Law and calling Israel to covenant
+              faithfulness before entering Canaan.
 
       - name: "HISTORICAL"
         color: "#B07818"
         books:
           - name: Joshua
-            summary: "Under Joshua, Israel crosses the Jordan, conquers Canaan, and divides the land among the tribes — God keeps every promise."
+            summary: >
+              Under Joshua, Israel crosses the Jordan, conquers Canaan, and divides the
+              land among the tribes — God keeps every promise.
           - name: Judges
-            summary: A cycle of sin, oppression, and deliverance as Israel repeatedly abandons God, who raises up judges to rescue them.
+            summary: >
+              A cycle of sin, oppression, and deliverance as Israel repeatedly abandons
+              God, who raises up judges to rescue them.
           - name: Ruth
-            summary: "A Moabite widow's loyalty leads to redemption through Boaz, placing her in the lineage of David and Christ."
+            summary: >
+              A Moabite widow's loyalty leads to redemption through Boaz, placing her in
+              the lineage of David and Christ.
           - name: 1 Samuel
-            summary: "Israel moves from judges to kings: Samuel anoints Saul, who fails, and God chooses David, a man after his own heart."
+            summary: >
+              Israel moves from judges to kings: Samuel anoints Saul, who fails, and God
+              chooses David, a man after his own heart.
           - name: 2 Samuel
-            summary: "David's reign — his triumphs, God's covenant promising an eternal throne, and his fall with Bathsheba."
+            summary: >
+              David's reign — his triumphs, God's covenant promising an eternal throne,
+              and his fall with Bathsheba.
           - name: 1 Kings
-            summary: "Solomon's glory and temple, then the kingdom splits into Israel and Judah amid growing idolatry; Elijah confronts Ahab."
+            summary: >
+              Solomon's glory and temple, then the kingdom splits into Israel and Judah
+              amid growing idolatry; Elijah confronts Ahab.
           - name: 2 Kings
-            summary: "Elisha's ministry and royal failure lead to the fall of both kingdoms: Israel to Assyria, Judah to Babylon, the temple destroyed."
+            summary: >
+              Elisha's ministry and royal failure lead to the fall of both kingdoms:
+              Israel to Assyria, Judah to Babylon, the temple destroyed.
           - name: 1 Chronicles
-            summary: "A retelling of David's reign emphasizing temple worship and God's covenant faithfulness."
+            summary: >
+              A retelling of David's reign emphasizing temple worship and God's covenant
+              faithfulness.
           - name: 2 Chronicles
-            summary: "Solomon through Judah's exile, focusing on the temple and the kings who sought (or abandoned) God."
+            summary: >
+              Solomon through Judah's exile, focusing on the temple and the kings who
+              sought (or abandoned) God.
           - name: Ezra
-            summary: "Exiles return from Babylon in two waves: Zerubbabel rebuilds the temple, and Ezra teaches the Law and leads reform."
+            summary: >
+              Exiles return from Babylon in two waves: Zerubbabel rebuilds the temple, and
+              Ezra teaches the Law and leads reform.
           - name: Nehemiah
-            summary: "Nehemiah, the king's cupbearer, returns to rebuild Jerusalem's walls in 52 days amid fierce opposition, then joins Ezra in covenant renewal."
+            summary: >
+              Nehemiah, the king's cupbearer, returns to rebuild Jerusalem's walls in 52
+              days amid fierce opposition, then joins Ezra in covenant renewal.
           - name: Esther
-            summary: A Jewish queen in Persia courageously saves her people from genocide; God works providentially though unnamed.
+            summary: >
+              A Jewish queen in Persia courageously saves her people from genocide; God
+              works providentially though unnamed.
 
       - name: "WISDOM & POETRY"
         color: "#4E7C3A"
         books:
           - name: Job
-            summary: "A righteous sufferer wrestles with why the innocent suffer; God answers with his sovereignty and wisdom."
+            summary: >
+              A righteous sufferer wrestles with why the innocent suffer; God answers with
+              his sovereignty and wisdom.
           - name: Psalms
-            summary: "Israel's inspired hymnbook — 150 songs of praise, lament, thanksgiving, and royal hope, arranged in five books."
+            summary: >
+              Israel's inspired hymnbook — 150 songs of praise, lament, thanksgiving, and
+              royal hope, arranged in five books.
           - name: Proverbs
-            summary: "Practical wisdom for everyday life, grounded in the fear of the LORD — on speech, work, money, friendship, family, and character."
+            summary: >
+              Practical wisdom for everyday life, grounded in the fear of the LORD — on
+              speech, work, money, friendship, family, and character.
           - name: Ecclesiastes
-            summary: "Life \u201Cunder the sun\u201D is fleeting vapor; meaning is found in fearing God and keeping his commandments."
+            summary: >
+              Life “under the sun” is fleeting vapor; meaning is found in fearing God and
+              keeping his commandments.
           - name: Song of Solomon
-            summary: "A lyrical celebration of romantic love, desire, and marital delight between a bride and her beloved."
+            summary: >
+              A lyrical celebration of romantic love, desire, and marital delight between
+              a bride and her beloved.
 
       - name: "MAJOR PROPHETS"
         color: "#1F6E7E"
         books:
           - name: Isaiah
-            summary: Judgment on sin and glorious promises of the coming Messiah, the suffering servant, and a new creation.
+            summary: >
+              Judgment on sin and glorious promises of the coming Messiah, the suffering
+              servant, and a new creation.
           - name: Jeremiah
-            summary: The weeping prophet warns Judah of Babylonian judgment and promises a new covenant.
+            summary: >
+              The weeping prophet warns Judah of Babylonian judgment and promises a new
+              covenant.
           - name: Lamenta- tions
-            summary: "Five acrostic poems grieving Jerusalem's fall, anchored by one hope: God's mercies are new every morning."
+            summary: >
+              Five acrostic poems grieving Jerusalem's fall, anchored by one hope: God's
+              mercies are new every morning.
           - name: Ezekiel
-            summary: "God's glory departing and returning; judgment on Judah, then hope of restoration and new hearts."
+            summary: >
+              God's glory departing and returning; judgment on Judah, then hope of
+              restoration and new hearts.
           - name: Daniel
-            summary: "Faithfulness in Babylonian exile and apocalyptic visions of God's kingdom triumphing over earthly empires."
+            summary: >
+              Faithfulness in Babylonian exile and apocalyptic visions of God's kingdom
+              triumphing over earthly empires.
 
       - name: "MINOR PROPHETS"
         color: "#46639C"
         books:
           - name: Hosea
-            summary: "Hosea's marriage to unfaithful Gomer becomes a living picture of God's wounded, relentless love for adulterous Israel."
+            summary: >
+              Hosea's marriage to unfaithful Gomer becomes a living picture of God's
+              wounded, relentless love for adulterous Israel.
           - name: Joel
-            summary: "A locust plague previews the day of the LORD — a call to repent, with the promise God will pour out his Spirit on all flesh."
+            summary: >
+              A locust plague previews the day of the LORD — a call to repent, with the
+              promise God will pour out his Spirit on all flesh.
           - name: Amos
-            summary: "A shepherd from Judah thunders against Israel's injustice and hollow religion: \"Let justice roll down like waters.\""
+            summary: >
+              A shepherd from Judah thunders against Israel's injustice and hollow
+              religion: "Let justice roll down like waters."
           - name: Obadiah
-            summary: "The shortest Old Testament book: judgment on Edom for gloating over Jerusalem's fall, and hope the kingdom will be the LORD's."
+            summary: >
+              The shortest Old Testament book: judgment on Edom for gloating over
+              Jerusalem's fall, and hope the kingdom will be the LORD's.
           - name: Jonah
-            summary: "A prophet flees God's call to Nineveh, is swallowed by a fish, then preaches — and sulks when the city repents."
+            summary: >
+              A prophet flees God's call to Nineveh, is swallowed by a fish, then preaches
+              — and sulks when the city repents.
           - name: Micah
-            summary: "Judgment for injustice, hope in a ruler from Bethlehem, and the call to do justice, love kindness, walk humbly."
+            summary: >
+              Judgment for injustice, hope in a ruler from Bethlehem, and the call to do
+              justice, love kindness, walk humbly.
           - name: Nahum
-            summary: "A century after Jonah, Nineveh's repentance has faded — Nahum announces the certain fall of the brutal Assyrian empire."
+            summary: >
+              A century after Jonah, Nineveh's repentance has faded — Nahum announces the
+              certain fall of the brutal Assyrian empire.
           - name: Habakkuk
-            summary: "A prophet asks why evil goes unpunished, and why Babylon judges Judah. God answers: \"The righteous shall live by faith.\""
+            summary: >
+              A prophet asks why evil goes unpunished, and why Babylon judges Judah. God
+              answers: "The righteous shall live by faith."
           - name: Zephaniah
-            summary: "The great day of the LORD is near — sweeping judgment on Judah and the nations, then a purified remnant rejoicing."
+            summary: >
+              The great day of the LORD is near — sweeping judgment on Judah and the
+              nations, then a purified remnant rejoicing.
           - name: Haggai
-            summary: "After the return from exile, the people stall on rebuilding the temple. Haggai's messages stir them to put God's house first."
+            summary: >
+              After the return from exile, the people stall on rebuilding the temple.
+              Haggai's messages stir them to put God's house first.
           - name: Zechariah
-            summary: "Visions encourage the temple builders, pointing to a humble King on a donkey, a pierced Shepherd, and the LORD reigning."
+            summary: >
+              Visions encourage the temple builders, pointing to a humble King on a
+              donkey, a pierced Shepherd, and the LORD reigning.
           - name: Malachi
-            summary: "God rebukes Israel's halfhearted worship and promises a messenger preparing the LORD's way."
+            summary: >
+              God rebukes Israel's halfhearted worship and promises a messenger preparing
+              the LORD's way.
 
   new:
     title: "NEW TESTAMENT"
@@ -174,72 +262,146 @@ testaments:
         color: "#5E4390"
         books:
           - name: Matthew
-            summary: "Jesus is Israel's Messiah, son of David and Abraham, the King who fulfills the Old Testament, teaches the kingdom, dies for sins, and commissions his church to disciple all nations."
+            summary: >
+              Jesus is Israel's Messiah, son of David and Abraham, the King who fulfills
+              the Old Testament, teaches the kingdom, dies for sins, and commissions his
+              church to disciple all nations.
           - name: Mark
-            summary: "The fast-paced Gospel of Jesus the Servant-King: the Son of God who came \"not to be served but to serve, and to give his life as a ransom for many\" (10:45)."
+            summary: >
+              The fast-paced Gospel of Jesus the Servant-King: the Son of God who came
+              "not to be served but to serve, and to give his life as a ransom for many"
+              (10:45).
           - name: Luke
-            summary: "A carefully researched account of Jesus the Savior of all people — with special attention to the poor, women, outsiders, prayer, and the Spirit. \"The Son of Man came to seek and to save the lost\" (19:10)."
+            summary: >
+              A carefully researched account of Jesus the Savior of all people — with
+              special attention to the poor, women, outsiders, prayer, and the Spirit.
+              "The Son of Man came to seek and to save the lost" (19:10).
           - name: John
-            summary: "The Word made flesh: seven signs and seven \"I am\" sayings reveal Jesus as the divine Son, \"that you may believe... and that by believing you may have life in his name\" (20:31)."
+            summary: >
+              The Word made flesh: seven signs and seven "I am" sayings reveal Jesus as
+              the divine Son, "that you may believe... and that by believing you may have
+              life in his name" (20:31).
 
       - name: "HISTORY"
         color: "#963F8F"
         books:
           - name: Acts
-            summary: "The risen Jesus pours out the Spirit, and the gospel spreads from Jerusalem to Rome — through the witness of Peter, the martyrdom of Stephen, the conversion of Paul, and three missionary journeys."
+            summary: >
+              The risen Jesus pours out the Spirit, and the gospel spreads from Jerusalem
+              to Rome — through the witness of Peter, the martyrdom of Stephen, the
+              conversion of Paul, and three missionary journeys.
 
       - name: "PAULINE EPISTLES"
         color: "#B03A2E"
         books:
           - name: Romans
-            summary: "Paul's fullest exposition of the gospel: all have sinned; all are justified freely by grace through faith in Christ; nothing can separate believers from God's love; therefore live transformed lives."
+            summary: >
+              Paul's fullest exposition of the gospel: all have sinned; all are justified
+              freely by grace through faith in Christ; nothing can separate believers from
+              God's love; therefore live transformed lives.
           - name: 1 Corinthians
-            summary: Paul confronts a divided, gifted, morally confused church — applying the wisdom of the cross to factions, immorality, lawsuits, marriage, worship, spiritual gifts, love, and resurrection.
+            summary: >
+              Paul confronts a divided, gifted, morally confused church — applying the
+              wisdom of the cross to factions, immorality, lawsuits, marriage, worship,
+              spiritual gifts, love, and resurrection.
           - name: 2 Corinthians
-            summary: "Paul's most personal letter: defending his ministry against critics, he reveals the paradox of gospel service — treasure in jars of clay, strength perfected in weakness."
+            summary: >
+              Paul's most personal letter: defending his ministry against critics, he
+              reveals the paradox of gospel service — treasure in jars of clay, strength
+              perfected in weakness.
           - name: Galatians
-            summary: "A fiery defense of the gospel of grace: justification is by faith in Christ, not works of the law — so stand firm in freedom and walk by the Spirit."
+            summary: >
+              A fiery defense of the gospel of grace: justification is by faith in Christ,
+              not works of the law — so stand firm in freedom and walk by the Spirit.
           - name: Ephesians
-            summary: "God's cosmic plan to unite all things in Christ: saved by grace, Jew and Gentile made one new humanity, the church equipped to walk worthy and stand in spiritual armor."
+            summary: >
+              God's cosmic plan to unite all things in Christ: saved by grace, Jew and
+              Gentile made one new humanity, the church equipped to walk worthy and stand
+              in spiritual armor.
           - name: Philippians
-            summary: "A joyful thank-you letter from prison: to live is Christ; have the humble mind of Christ; press on toward the goal; rejoice in the Lord always."
+            summary: >
+              A joyful thank-you letter from prison: to live is Christ; have the humble
+              mind of Christ; press on toward the goal; rejoice in the Lord always.
           - name: Colossians
-            summary: Against a philosophy diminishing Christ, Paul exalts him as supreme over creation and the church — believers are complete in him and should seek the things above.
+            summary: >
+              Against a philosophy diminishing Christ, Paul exalts him as supreme over
+              creation and the church — believers are complete in him and should seek the
+              things above.
           - name: 1 Thessalonians
-            summary: "Encouragement for a young persecuted church: Paul recalls their conversion, urges holy living and love, and comforts them about believers who have died — the Lord will return."
+            summary: >
+              Encouragement for a young persecuted church: Paul recalls their conversion,
+              urges holy living and love, and comforts them about believers who have died
+              — the Lord will return.
           - name: 2 Thessalonians
-            summary: "Correcting confusion about the day of the Lord: it has not yet come; stand firm under persecution, and don't be idle while waiting."
+            summary: >
+              Correcting confusion about the day of the Lord: it has not yet come; stand
+              firm under persecution, and don't be idle while waiting.
           - name: 1 Timothy
-            summary: "Instructions to Paul's young delegate in Ephesus: guard sound doctrine, order the church's worship and leadership, and set an example of godliness."
+            summary: >
+              Instructions to Paul's young delegate in Ephesus: guard sound doctrine,
+              order the church's worship and leadership, and set an example of godliness.
           - name: 2 Timothy
-            summary: "Paul's final letter, written facing death: guard the gospel, endure suffering, preach the word — \"I have fought the good fight, I have finished the race.\""
+            summary: >
+              Paul's final letter, written facing death: guard the gospel, endure
+              suffering, preach the word — "I have fought the good fight, I have finished
+              the race."
           - name: Titus
-            summary: "Instructions for organizing churches in Crete: appoint qualified elders, teach sound doctrine, and let grace train God's people to live godly, good-works-filled lives."
+            summary: >
+              Instructions for organizing churches in Crete: appoint qualified elders,
+              teach sound doctrine, and let grace train God's people to live godly,
+              good-works-filled lives.
           - name: Philemon
-            summary: A personal appeal — Paul asks Philemon to receive back his runaway slave Onesimus, now a brother in Christ, charging any debt to Paul's own account; the gospel transforming relationships.
+            summary: >
+              A personal appeal — Paul asks Philemon to receive back his runaway slave
+              Onesimus, now a brother in Christ, charging any debt to Paul's own account;
+              the gospel transforming relationships.
 
       - name: "GENERAL EPISTLES"
         color: "#BE5F13"
         books:
           - name: Hebrews
-            summary: Jesus is better — greater than angels, Moses, and the old priesthood; his once-for-all sacrifice fulfills the entire sacrificial system. So don't drift back — hold fast, and run the race by faith.
+            summary: >
+              Jesus is better — greater than angels, Moses, and the old priesthood; his
+              once-for-all sacrifice fulfills the entire sacrificial system. So don't
+              drift back — hold fast, and run the race by faith.
           - name: James
-            summary: "Wisdom for practical faith: trials, temptation, the tongue, favoritism, wealth, and prayer — because faith without works is dead."
+            summary: >
+              Wisdom for practical faith: trials, temptation, the tongue, favoritism,
+              wealth, and prayer — because faith without works is dead.
           - name: 1 Peter
-            summary: "Hope for \"elect exiles\" suffering for their faith: born again to a living hope, called to holy living, honorable conduct, and joyful endurance after Christ's example."
+            summary: >
+              Hope for "elect exiles" suffering for their faith: born again to a living
+              hope, called to holy living, honorable conduct, and joyful endurance after
+              Christ's example.
           - name: 2 Peter
-            summary: "Peter's farewell: grow in godliness, beware false teachers, and remember — the Lord's apparent delay is patience; the day of the Lord will come."
+            summary: >
+              Peter's farewell: grow in godliness, beware false teachers, and remember —
+              the Lord's apparent delay is patience; the day of the Lord will come.
           - name: 1 John
-            summary: "Tests of authentic life with God — walking in the light, loving one another, and believing Jesus is the Christ come in the flesh — \"that you may know that you have eternal life.\""
+            summary: >
+              Tests of authentic life with God — walking in the light, loving one another,
+              and believing Jesus is the Christ come in the flesh — "that you may know
+              that you have eternal life."
           - name: 2 John
-            summary: Walk in truth and love — and do not welcome or support teachers who deny Christ's coming in the flesh.
+            summary: >
+              Walk in truth and love — and do not welcome or support teachers who deny
+              Christ's coming in the flesh.
           - name: 3 John
-            summary: "The shortest book of the Bible: praise for Gaius's hospitality to traveling gospel workers, contrasted with domineering Diotrephes; imitate good, not evil."
+            summary: >
+              The shortest book of the Bible: praise for Gaius's hospitality to traveling
+              gospel workers, contrasted with domineering Diotrephes; imitate good, not
+              evil.
           - name: Jude
-            summary: An urgent appeal to contend for the faith against infiltrating false teachers — ending with one of Scripture's great doxologies to him who is able to keep you from stumbling.
+            summary: >
+              An urgent appeal to contend for the faith against infiltrating false
+              teachers — ending with one of Scripture's great doxologies to him who is
+              able to keep you from stumbling.
 
       - name: "APOCALYPTIC"
         color: "#33308A"
         books:
           - name: Revelation
-            summary: "Jesus unveils the end of the story: letters to seven churches, cycles of judgment, Babylon's fall, Christ's victorious return, and a new heaven & earth where God dwells with his people forever."
+            summary: >
+              Jesus unveils the end of the story: letters to seven churches, cycles of
+              judgment, Babylon's fall, Christ's victorious return, and a new heaven &
+              earth where God dwells with his people forever.

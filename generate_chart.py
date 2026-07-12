@@ -131,8 +131,8 @@ def main():
     BOTTOM_ANCHOR = 2.6  # y-coordinate the last testament band's bottom edge sits on
     TL_H = 3.9
     TL_GAP_ABOVE = 1.0   # gap between top of testament grids and the timeline
-    SM_TL_GAP = 0.6      # gap between summary box and timeline
-    SM_TOP = 93.6         # top of summary box, just under the title
+    SM_TL_GAP = 1.0       # gap between summary box and timeline
+    SM_TOP = 94.0          # top of summary box, just under the title
     MIN_SUMMARY_H = 4.0
 
     def flatten(sections):
@@ -208,17 +208,40 @@ def main():
     pad_x, pad_y = 0.7, 0.3
     avail_w = (100 - 2 * M) - 2 * pad_x
     avail_h = (sm_top - sm_bot) - 2 * pad_y
-    LS = 1.38
+    LS_BASE, LS_MAX = 1.20, 1.40
     summary_text = " ".join(data["summary"].split())  # normalize whitespace/newlines
     fs = 16.0
     while fs > 4.0:
         lines = wrap_to_width(summary_text, fs, avail_w)
         _, lh = measure("Ag", fs)
-        if len(lines) * lh * LS <= avail_h:
+        if len(lines) * lh * LS_BASE <= avail_h:
             break
         fs -= 0.1
-    ax.text(M + pad_x, (sm_top + sm_bot) / 2, "\n".join(lines), ha="left", va="center",
-            fontsize=fs, color=INK, linespacing=LS)
+    # The 0.1pt search above stops as soon as text fits, which often leaves a
+    # gap (the next size up would wrap an extra line and overflow). Rather
+    # than waste that leftover height as blank padding, stretch the line
+    # spacing to consume it so the paragraph fills the box evenly.
+    LS = min(LS_MAX, avail_h / (len(lines) * lh))
+
+    # Matplotlib has no justify option, so lines are hand-justified: each
+    # word is placed individually with the inter-word gap stretched to fill
+    # avail_w. The last line (and any line with only one word) stays ragged,
+    # matching normal typographic convention.
+    line_h = lh * LS
+    x0 = M + pad_x
+    y = (sm_top + sm_bot) / 2 + (len(lines) - 1) * line_h / 2
+    for i, line in enumerate(lines):
+        words = line.split()
+        if i == len(lines) - 1 or len(words) < 2:
+            ax.text(x0, y, line, ha="left", va="center", fontsize=fs, color=INK)
+        else:
+            word_widths = [measure(w, fs)[0] for w in words]
+            gap_w = (avail_w - sum(word_widths)) / (len(words) - 1)
+            cx = x0
+            for wi, w in enumerate(words):
+                ax.text(cx, y, w, ha="left", va="center", fontsize=fs, color=INK)
+                cx += word_widths[wi] + gap_w
+        y -= line_h
 
     # -------------------------------------------------- timeline
     TL_C = "#8a7a5f"
